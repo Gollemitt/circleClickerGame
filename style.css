@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #cc2b5e;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#753a88), to(#cc2b5e));
+  background: linear-gradient(to right, #753a88, #cc2b5e);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
+}
+
+body div.gamePanel {
+  width: 100%;
+  font-family: "Montserrat";
+}
+
+body div.gamePanel p {
+  display: inline;
+  margin-right: 3rem;
+  line-height: 5rem;
+  float: right;
+  color: #fff;
+}
+
+body div.gamePanel p.gameEnded {
+  position: absolute;
+  top: 50vh;
+  width: 100%;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+body div.gamePanel button {
+  margin-right: 3rem;
+  height: 5rem;
+  float: right;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Montserrat";
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+body div.gamePanel button:hover {
+  cursor: pointer;
+  color: #999999;
+}
+
+body div.circle {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: orange;
+  -webkit-transition: 700ms;
+  transition: 700ms;
+  z-index: -1;
+}
+
+body div.circle:hover {
+  cursor: pointer;
+  background-color: #c77500;
+}
+/*# sourceMappingURL=style.css.map */

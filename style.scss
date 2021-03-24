@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$font: "Montserrat";
+$primary-color: rgb(3,130,145);
+
+body {
+    background: #cc2b5e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+    
+    div.gamePanel {
+        width: 100%;
+        font-family: $font;
+        
+
+        p {
+            display: inline;
+            margin-right: 3rem;
+            line-height: 5rem;
+            float: right;
+
+            color: #fff;
+
+            &.gameEnded {
+                position: absolute;
+                top: 50vh;
+                width: 100%;
+                text-align: center;
+
+                font-size: 6rem;
+                font-weight: bold;
+            }
+        }
+
+        button {
+            margin-right: 3rem;
+            height: 5rem;
+            float: right;
+
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            font-family: $font;
+
+            transition: 400ms;
+
+            &:hover {
+                cursor: pointer;
+                color: darken(#fff, 40%);
+            }
+        }
+    }
+    
+    div.circle {
+        position: absolute;
+
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+
+        background-color: orange;
+        transition: 700ms;
+
+        z-index: -1;
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken(#ffb347 , 25%)
+        }
+    }
+}
