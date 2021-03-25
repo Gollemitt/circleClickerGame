@@ -20,15 +20,19 @@ body div.gamePanel {
   font-family: "Montserrat";
 }
 
-body div.gamePanel p {
+body div.gamePanel div {
   display: inline;
   margin-right: 3rem;
-  line-height: 5rem;
   float: right;
+}
+
+body div.gamePanel div p, body div.gamePanel div i {
+  display: inline;
+  line-height: 5rem;
   color: #fff;
 }
 
-body div.gamePanel p.gameEnded {
+body div.gamePanel div.gameEnded {
   position: absolute;
   top: 50vh;
   width: 100%;
@@ -46,6 +50,7 @@ body div.gamePanel button {
   color: #fff;
   font-size: 1rem;
   font-family: "Montserrat";
+  outline: none;
   -webkit-transition: 400ms;
   transition: 400ms;
 }
@@ -53,6 +58,90 @@ body div.gamePanel button {
 body div.gamePanel button:hover {
   cursor: pointer;
   color: #999999;
+}
+
+body div.highScoreModal {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  position: fixed;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+body div.highScoreModal div.modalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  width: 50vw;
+  margin-top: 50vh;
+  padding-bottom: 5rem;
+  background: #F2994A;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right bottom, from(#F2C94C), to(#F2994A));
+  background: linear-gradient(to bottom right, #F2C94C, #F2994A);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 3rem;
+  font-family: "Montserrat";
+  color: #fff;
+}
+
+body div.highScoreModal div.modalContent h1 {
+  margin-top: 3rem;
+  font-size: 3rem;
+}
+
+body div.highScoreModal div.modalContent i {
+  position: absolute;
+  right: 27vw;
+  top: 13vh;
+  font-size: 1.5rem;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+body div.highScoreModal div.modalContent i:hover {
+  cursor: pointer;
+  color: #333333;
+}
+
+body div.highScoreModal div.modalContent table {
+  margin-top: 50px;
+  width: 80%;
+  color: #000;
+}
+
+body div.highScoreModal div.modalContent table th {
+  background-color: lightgrey;
+  padding: 1rem 0;
+}
+
+body div.highScoreModal div.modalContent table td {
+  padding: .5rem 0;
+}
+
+body div.highScoreModal div.modalContent table tr {
+  background-color: whitesmoke;
+}
+
+body div.highScoreModal div.modalContent table tr:nth-child(odd) {
+  background-color: wheat;
 }
 
 body div.circle {

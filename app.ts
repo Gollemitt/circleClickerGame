@@ -2,7 +2,64 @@ console.log("Success!");
 let score = 0;
 let N = 1; // Number of circles in play
 const scoreTxt = document.querySelectorAll(".gamePanel p"); // Stores all p tags under class .gamePanel in an array
+const scoreDiv = document.querySelector("#container");
+class HighScoreModal {
 
+    highScoreModal: HTMLElement;
+    modalContent: HTMLElement;
+    btnClose: Element;
+    btnHighScore: Element;
+
+    constructor() {
+        this.highScoreModal = document.querySelector("div.highScoreModal");
+        this.modalContent = document.querySelector("div div.modalContent");
+        this.btnHighScore = document.querySelectorAll("div button")[1];
+        this.btnClose = document.querySelector("i.fa-times");
+        
+        this.btnHighScore.addEventListener("click", () => {
+            this.highScoreModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        })
+
+        this.btnClose.addEventListener("click", () => {
+            this.highScoreModal.style.display = "none";
+            document.body.style.overflow = "auto";
+        })
+
+        window.addEventListener("click", (e) => {
+            if (e.target == this.highScoreModal) {
+                this.highScoreModal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        })
+    }
+}
+
+class Table {
+    static highScoreData : any;
+    table: Element;
+
+    constructor() {
+        this.table = document.querySelector('table');
+        fetch("highScoreData.json")
+        .then(response => response.json())
+        .then(json => Table.highScoreData = json);
+
+        new Array(50).fill(0).forEach(() => {
+            this.generateTable()
+        });
+    }
+    
+    generateTable() {
+        const newRow = document.createElement("tr");
+        const playerColumn = document.createElement("td");
+        const scoreColumn = document.createElement("td");
+
+        this.table.appendChild(newRow);
+        newRow.appendChild(playerColumn);
+        newRow.appendChild(scoreColumn);
+    }
+}
 class RestartBtn {
 
     btn: Element;
@@ -32,7 +89,7 @@ class GameClock {
     // Updates clock, decrements clock and updates timer
     static updateClock(): void {
         this.time--;
-        this.clock.innerHTML = `Time remaining: ${this.time}s`;
+        this.clock.innerHTML = ` ${this.time}s`;
     }
 
     // Starts clock and sets clockRunning = true; to avoid multiple runs
@@ -47,7 +104,7 @@ class GameClock {
                 if (this.time <= 0) {
                     clearInterval(x);
                     Circle.deleteCircles()
-                    scoreTxt[0].classList.add("gameEnded")
+                    scoreDiv.classList.add("gameEnded")
                 }
             }, 1000); // Interval runs every second (1000ms)
         } 
@@ -117,3 +174,6 @@ new RestartBtn();
 // Then it increments through the array and creates a Circle object for each index. 
 // Returns a new array with all the objects.
 const arrCircles = new Array<number>(N).fill(0).map(() => new Circle()); 
+
+new HighScoreModal();
+new Table();

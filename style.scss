@@ -17,14 +17,16 @@ body {
         width: 100%;
         font-family: $font;
         
-
-        p {
+        div {
             display: inline;
             margin-right: 3rem;
-            line-height: 5rem;
             float: right;
-
-            color: #fff;
+            p, i {
+                display: inline;
+                line-height: 5rem;
+    
+                color: #fff;
+            }
 
             &.gameEnded {
                 position: absolute;
@@ -47,6 +49,7 @@ body {
             color: #fff;
             font-size: 1rem;
             font-family: $font;
+            outline: none;
 
             transition: 400ms;
 
@@ -55,6 +58,84 @@ body {
                 color: darken(#fff, 40%);
             }
         }
+    }
+
+    div.highScoreModal {
+        display: flex !important;
+        position: fixed;        
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+
+        background-color: rgba(0,0,0, 0.3);
+        overflow: auto;
+
+        div.modalContent {
+            display: flex;
+            align-content: center;
+            flex-flow: column wrap;
+            width: 50vw;
+            margin-top: 50vh;
+            padding-bottom: 5rem;
+            background: #F2994A;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom right, #F2C94C, #F2994A);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom right, #F2C94C, #F2994A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+             
+            border-radius: 3rem;
+
+            font-family: $font;
+            color: #fff;
+            
+
+            h1 {
+                margin-top: 3rem;
+                font-size: 3rem;
+            }
+
+            i {
+                position: absolute;
+                right: 27vw;
+                top: 13vh;
+    
+                font-size: 1.5rem;
+                transition: 400ms;
+    
+                &:hover {
+                    cursor: pointer;
+                    color: darken(#fff, 80%);
+                }
+            }
+
+            table {
+                margin-top: 50px;
+                width: 80%;
+                color: #000;
+
+                
+    
+                th {
+                    background-color: lightgrey;
+                    padding: 1rem 0;
+                }
+    
+                td {
+                    padding: .5rem 0;
+                }
+    
+                tr {
+                    background-color: whitesmoke;
+                    
+                    &:nth-child(odd) {
+                        background-color: wheat;
+                    }
+                }
+    
+            }
+        }
+
+        
     }
     
     div.circle {

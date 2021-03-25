@@ -5,14 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <title>Klikkespill</title>
 </head>
 <body>
     <div class="gamePanel">
-        <button>Restart</button>
-        <p>Score: 0</p>
-        <p>Time remaining: 60s</p>
+        <button><i class="fas fa-redo-alt"></i> Restart</button>
+        <button><i class="fas fa-trophy"></i> Highscore</button>
+        <div id="container">
+            <i class="fas fa-star"></i>
+            <p> Score: 0</p>
+        </div>
+        <div>
+            <i class="fas fa-stopwatch"></i>
+            <p>  60s</p>
+        </div>
+    </div>
+    <div class="highScoreModal">
+        <div class="modalContent">
+            <i class="fas fa-times"></i>
+            <h1>Highscores</h1>
+            <table>
+                <tr>
+                    <th>Player</th>
+                    <th>Score</th>
+                </tr>
+            </table>
+        </div>
     </div>
     <script src="app.js"></script>
+    <script src="https://kit.fontawesome.com/f732f9a352.js" crossorigin="anonymous"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBljhDEjQLUKCkns9t0lxAIGYDucEGWqac",
+        authDomain: "it2-database.firebaseapp.com",
+        databaseURL: "https://it2-database-default-rtdb.firebaseio.com",
+        projectId: "it2-database",
+        storageBucket: "it2-database.appspot.com",
+        messagingSenderId: "318656848629",
+        appId: "1:318656848629:web:d85a060c7d56f1228d5bbc"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    let database = firebase.database();
+
+    </script>
 </body>
 </html>
